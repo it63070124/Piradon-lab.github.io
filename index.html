@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <title>Piradon Portfolio</title>
+    <style>
+        body {
+            margin-top: 20px;
+            color: #1a202c;
+            text-align: left;
+            font-family: 'Kanit', sans-serif;
+            /* background-color: #e2e8f0; */
+            background: url("https://cdn.discordapp.com/attachments/1080516281851199528/1080542057480847392/pink-and-blue-background-pastel-mottled-border-texture-and-blurred-grunge-design-in-old-vintage-backgrounds-free-vector.png");
+            background-size: cover;
+        }
+
+        .main-body {
+            padding: 15px;
+        }
+
+        .card {
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+        }
+
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 0 solid rgba(0, 0, 0, .125);
+            border-radius: .25rem;
+            box-shadow: 10px 10px 20px lightblue;
+        }
+
+        .card-body {
+            flex: 1 1 auto;
+            min-height: 1px;
+            padding: 1rem;
+        }
+
+        .gutters-sm {
+            margin-right: -8px;
+            margin-left: -8px;
+        }
+
+        .gutters-sm>.col,
+        .gutters-sm>[class*=col-] {
+            padding-right: 8px;
+            padding-left: 8px;
+        }
+
+        .mb-3,
+        .my-3 {
+            margin-bottom: 1rem !important;
+        }
+
+        .bg-gray-300 {
+            background-color: #e2e8f0;
+        }
+
+        .shadow-none {
+            box-shadow: none !important;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .left .right {
+            width: 50%;
+        }
+
+        .column {
+            float: left;
+            padding: 10px;
+            margin-bottom: auto;
+            text-align: center;
+        }
+
+        /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_grid_responsive */
+        .row1 {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0 4px;
+        }
+
+        .column1 {
+            flex: 33%;
+            max-width: 33%;
+            padding: 0 4px;
+        }
+
+        .column1 img {
+            margin-top: 8px;
+            vertical-align: middle;
+            width: 100%;
+        }
+
+        @media screen and (max-width: 800px) {
+            .column1 {
+                flex: 50%;
+                max-width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .column1 {
+                flex: 100%;
+                max-width: 100%;
+            }
+        }
+
+        #image-slider-1 .hcg-slide-container {
+            width: auto;
+            height: auto;
+        };
+        .hcg-slider {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .hcg-slide-container {
+            max-width: 100%;
+            display: inline-block;
+            position: relative;
+        }
+        .hcg-slides {
+            display: none;
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            border: solid 1px #a0a0a0;
+        }
+        .hcg-slides img {
+            max-width: 100%;
+            max-height: 100%;
+            display: inline-block;
+        }
+        .hcg-slide-dot-control {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .hcg-slide-dot {
+            cursor: pointer;
+            height: 13px;
+            width: 13px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .hcg-slide-dot.dot-active {
+            background-color: #717171;
+        }
+        /************CSS Animation***********/
+
+        .animated { 
+            animation-name: fadeIn; 
+            animation-duration: 1s;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .fadeIn {
+            animation-name: fadeIn;
+        }
+
+        #image-slider-2 .hcg-slide-container {
+            width: auto;
+            height: auto;
+        }
+        #image-slider-3 .hcg-slide-container {
+            width: auto;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main-body">
+
+            <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="https://media.discordapp.net/attachments/1080516281851199528/1080516942265323560/IMG_0281_crop.jpg?width=497&height=662"
+                                    alt="Admin" height="100%" width="100%" style="border-radius: 20px;">
+                                <div class="mt-3">
+                                    <h3>Piradon Phuengphong</h3>
+                                    <p class="text-secondary mb-1">ITKMITL, Bangkok</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-3">
+
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="feather feather-github mr-2 icon-inline">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                        </path>
+                                    </svg>Github</h6>
+                                <span class="text-secondary"><a href="https://github.com/Piradon-lab" target="_blank">Piradon-lab</a></span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" 
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
+                                    <path 
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                    </path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg> E-mail</h6>
+                                <span class="text-secondary">63070124@kmitl.ac.th</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+                                    fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16" id="IconChangeColor"> 
+                                    <path 
+                                        d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 
+                                        17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 
+                                        0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 
+                                        0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 
+                                        0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 
+                                        2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" id="mainIconPathAttribute">
+                                    </path> </svg> Tel</h6>
+                                <span class="text-secondary">082-7284410</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Education</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    Kingmongkut's institute of Technology Ladkrabang<br>
+                                    Information Technology<br>
+                                    (Multimedia & Game Development)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row gutters-sm">
+                        <div class="col-sm-12 mb-3">
+                            <div class="card">
+                                <div class="card-header">
+                                    Skills
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Programming Language</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            Python<br>
+                                            C<br>
+                                            C++<br>
+                                            Java<br>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Others</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            Unreal Engine<br>
+                                            Maya<br>
+                                            Adobe Illustrator<br>
+                                            Adobe Photoshop<br>
+                                            MySQL<br>
+                                            Arduino<br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gutters-sm">
+                <div class="col-sm-12 mb-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Experience</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gutters-sm">
+                <div class="col-sm-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="mb-0">Replicate-Project</h6>
+                            <hr>
+                            <div style="margin-bottom: 1%;">
+                                เป็นการศึกษาการทำงานของ Virus ที่ทำงานโดยการ copy ตัวเองแล้วแฝงตัวเข้าไปในไฟล์อื่นๆ ทำให้ไฟล์เหล่านั้นเสียหาย จากนั้นนำมาทดลองพัฒนาเองด้วยภาษา Python
+                            </div>
+                            <img src="https://cdn.discordapp.com/attachments/1065576739381706812/1065576997729865789/image.png" class="rounded mx-auto d-block" height="400px">
+                            <hr>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <a href="https://docs.google.com/document/d/1xvXMMIUao7Kr7fvYuGjLZfywzG6nyJyTcnW1Nj2Za3w/edit?usp=sharing" target="_blank" class="btn btn-warning">Document</a>
+                                    <a href="https://github.com/SarunC4/Replicate-Project" target="_blank" class="btn btn-primary">Source Code</a>
+                                    <a href="https://drive.google.com/file/d/1JGRUnA0d7cRJwOv5iIB2ovzCwWgqIcma/view?usp=sharing" target="_blank" class="btn btn-success">Video demo</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gutters-sm">
+                <div class="col-sm-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="mb-0">Alarm Clock Project</h6>
+                            <hr>
+                            <div style="margin-bottom: 1%;">
+                                เป็นการทดลองทำนาฬิกาปลุก ซึ่งสามารถตั้งเวลาปัจจุบัน และเวลาปลุกได้ มีจอ LCD แสดงเวลาและ switch สำหรับตั้งเวลา ทำงานโดยจะมีการตั้งเวลาปัจจุบันก่อน และตั้งเวลาปลุก เมื่อถึงเวลาจะมีเสียงเตือนดังขึ้นและเมื่อเซ็นเซอร์ตรวจจับได้ว่ามีอะไรผ่านก็จะทำการหยุดเสียงเตือนนั้น
+                            </div>
+                            <img src="https://github.com/it63070160/Alarm-Clock/raw/main/alarm-clock.jpg" class="rounded mx-auto d-block" height="400px">
+                            <hr>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <a href="https://github.com/it63070160/Alarm-Clock" target="_blank" class="btn btn-primary">Git Hub</a>
+                                    <a href="https://youtu.be/lJRHrZiEIfg" target="_blank" class="btn btn-success">Video demo</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gutters-sm">
+                <div class="col-sm-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="mb-0">Bank simulation Project</h6>
+                            <hr>
+                            <div style="margin-bottom: 1%;">
+                                การพัฒนาแอปพลิเคชันธนาคารออนไลน์ที่มีการเชื่อมต่อกับฐานข้อมูลด้วยภาษา Java, MySQL โดยใช้โปรแกรม NetBeans และ phpMyadmin ในการพัฒนา
+                            </div>
+                            <div id="image-slider-1" class="hcg-slider text-center">
+                                <div class="hcg-slide-container">
+                                <div class="hcg-slider-body">
+                                    <a class="hcg-slides animated" style="display:flex">
+                                        <img src="https://media.discordapp.net/attachments/1065576739381706812/1067397233349247016/image.png?width=1158&height=628" alt="Image 1">
+                                    </a>
+                                </div>
+                                <div class="hcg-slide-dot-control"></div>
+                            </div>
+                            <hr>
+                            </div>
+                            
+                            </div>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <a href="https://www.canva.com/design/DAEys3b_LRo/IztfQX7QnPmn9AEcG07Oaw/view?utm_content=DAEys3b_LRo&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton" target="_blank" class="btn btn-warning">Document</a>
+                                    <a href="https://github.com/it63070160/OOP-Bank" target="_blank" class="btn btn-primary">Git Hub</a>
+                                    <a href="https://drive.google.com/file/d/1zDcgHKvCAswQmJWRNyT7ti8IKyMRZ1ix/view" target="_blank" class="btn btn-success">Video demo</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gutters-sm">
+                <div class="col-sm-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="mb-0">Solar Rooftop landing page</h6>
+                            <hr>
+                            <div style="margin-bottom: 1%;">
+                                การพัฒนาเว็บไซต์ให้ความรู้เกี่ยวกับ Solar rooftop ที่ร่วมมือกับ Greenpeace
+                            </div>
+                            <!-- <img src="https://media.discordapp.net/attachments/1065576739381706812/1067398845052502096/image.png?width=1186&height=627" class="rounded mx-auto d-block" height="400px"> -->
+                            <div class="hcg-slider text-center">
+                                <div class="hcg-slide-container">
+                                <div class="hcg-slider-body">
+                                    <a class="hcg-slides animated" style="display:flex">
+                                        <img src="https://media.discordapp.net/attachments/1065576739381706812/1067398845052502096/image.png?width=1186&height=627" alt="Image 1">
+                                    </a>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <a href="https://solar-rooftop-greenpeace.netlify.app/index_solar.html" target="_blank" class="btn btn-warning">Go to website</a>
+                                    <a href="https://github.com/larkingz01/Greenpeace_multi" target="_blank" class="btn btn-primary">Git Hub</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gutters-sm">
+                <div class="col-sm-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="mb-0">OLD MAN AND THE SEA</h6>
+                            <hr>
+                            <div style="margin-bottom: 1%;">
+                                Animation สั้นของชายแก่ที่ตกปลากลางทะเล
+                            </div>
+                            <div  class="hcg-slider text-center">
+                                <div class="hcg-slide-container">
+                                <div class="hcg-slider-body">
+                                    <a class="hcg-slides animated" style="display:flex">
+                                        <img src="https://media.discordapp.net/attachments/1080516281851199528/1080519056714633337/image.png?width=1178&height=662" alt="Image 1">
+                                    </a>
+                                </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <a href="https://youtu.be/ZI353R1lp_E" target="_blank" class="btn btn-success">Video</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gutters-sm">
+                <div class="col-sm-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="mb-0">Wizard room Model</h6>
+                            <hr>
+                            <div style="margin-bottom: 1%;">
+                                Model ห้องปรุงยาของพ่อมด
+                            </div>
+                            <!-- <img src="https://media.discordapp.net/attachments/1065576739381706812/1067398845052502096/image.png?width=1186&height=627" class="rounded mx-auto d-block" height="400px"> -->
+                            <div id="image-slider-4" class="hcg-slider text-center" >
+                                <div class="hcg-slide-container">
+                                <div class="hcg-slider-body">
+                                    <a class="hcg-slides animated" style="display:flex">
+                                        <img src="https://media.discordapp.net/attachments/1080516281851199528/1080540099890135090/63070124_1.jpg?width=1178&height=662" alt="Image 1">
+                                    </a>
+                                </div>
+                                <div class="hcg-slide-dot-control"></div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gutters-sm">
+                <div class="col-sm-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="mb-0">มิตรรักนักสุ่ม</h6>
+                            <hr>
+                            <div style="margin-bottom: 1%;">
+                               Website อธิบายประวัติศาสตร์ของหวยว่ามีที่มาจากอะไร
+                            </div>
+                            <div id="image-slider-2" class="hcg-slider text-center">
+                                <div class="hcg-slide-container">
+                                <div class="hcg-slider-body">
+                                    <a class="hcg-slides animated" style="display:flex">
+                                        <img src="https://cdn.discordapp.com/attachments/1080516281851199528/1080529341257101404/image.png" alt="Image 1">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="hcg-slide-dot-control"></div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <a href="https://mitrlovenaksum.netlify.app/" target="_blank" class="btn btn-warning">Go to website</a>
+                                    <a href="https://github.com/it63070024/-WebInWZa-Nited-x-IT" target="_blank" class="btn btn-primary">Git Hub</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row gutters-sm">
+                <div class="col-sm-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="mb-0">Worzard: the Star of Prophecy</h6>
+                            <hr>
+                            <div style="margin-bottom: 1%;">
+                                เกม Typing action ที่เล่นเป็นพ่อมดผจญภัยในต่างโลกแฟนตาซีสู้กับศัตรูด้วยการพิมพ์คำศัพท์ เลือกเวทมนต์โจมตีใส่ศัตรูเลือกอัพความสามารถได้ตามต้องการ
+                            </div>
+                            <!-- <img src="https://media.discordapp.net/attachments/1065576739381706812/1067398845052502096/image.png?width=1186&height=627" class="rounded mx-auto d-block" height="400px"> -->
+                            <div id="image-slider-3" class="hcg-slider text-center" >
+                                <div class="hcg-slide-container">
+                                <div class="hcg-slider-body">
+                                    <a class="hcg-slides animated" style="display:flex">
+                                        <img src="https://media.discordapp.net/attachments/1065576739381706812/1067398845052502096/image.png?width=1186&height=627" alt="Image 1">
+                                    </a>
+                                </div>
+                                <div class="hcg-slide-dot-control"></div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <a href="https://drive.google.com/drive/folders/11VAo-daNmMx8v-FgX61N8EcmZW00GnMJ?usp=sharing" target="_blank" class="btn btn-warning">Document</a>
+                                    <a href="https://github.com/63070042/GDD_project" target="_blank" class="btn btn-primary">Git Hub</a>
+                                    <a href="https://youtu.be/GMH-nXiECyY" target="_blank" class="btn btn-success">Video</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+
+        </div>
+    </div>
+
+    <script>
+    (() => {
+    //If you want to add more images, add the link name and URL image URL in the array list below.
+        const images_list = [
+    {
+        "url": "https://media.discordapp.net/attachments/1065576739381706812/1067397233349247016/image.png?width=1158&height=628",
+        "alt": "",
+        "name": "",
+        "link": ""
+    },
+    {
+        "url": "https://media.discordapp.net/attachments/1065576739381706812/1067397353478307850/image.png?width=1164&height=627",
+        "alt": "",
+        "name": "",
+        "link": ""
+    }
+        ];
+
+    // generated by https://www.html-code-generator.com/html/image-slideshow-generator
+        let slider_id = document.querySelector("#image-slider-1");
+
+        // append all images
+        let dots_div = "";
+        let images_div = "";
+        for (let i = 0; i < images_list.length; i++) {
+            // if no link without href="" tag
+            let href = (images_list[i].link == "" ? "":' href="'+images_list[i].link+'"');
+            images_div += '<a'+href+' class="hcg-slides animated"'+(i === 0 ? ' style="display:flex"':'')+'>'+
+                            '<img src="'+images_list[i].url+'" alt="'+images_list[i].name+'">'+
+                        '</a>';
+            dots_div += '<a href="#" class="hcg-slide-dot'+(i === 0 ? ' dot-active':'')+'" data-id="'+i+'"></a>';
+        }
+        slider_id.querySelector(".hcg-slider-body").innerHTML = images_div;
+        slider_id.querySelector(".hcg-slide-dot-control").innerHTML = dots_div;
+
+        let slide_index = 0;
+
+        const images = slider_id.querySelectorAll(".hcg-slides");
+        const dots = slider_id.querySelectorAll(".hcg-slide-dot");
+        const showSlides = () => {
+            if (slide_index > images.length-1) {
+                slide_index = 0;
+            }
+            if (slide_index < 0) {
+                slide_index = images.length-1;
+            }
+            for (let i = 0; i < images.length; i++) {
+                images[i].style.display = "none";
+                dots[i].classList.remove("dot-active");
+                if (i == slide_index) {
+                    images[i].style.display = "flex";
+                    dots[i].classList.add("dot-active");
+                }
+            }
+        }
+
+        const dot_click = event => {
+            event.preventDefault();
+            slide_index = event.target.dataset.id;
+            showSlides();
+        }
+
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].addEventListener("click", dot_click, false);
+        }
+        // auto play
+        setInterval(() => {
+            slide_index++;
+            showSlides();
+        }, 3000);
+
+    })();
+
+</script>
+    <script>
+        (() => {
+        //If you want to add more images, add the link name and URL image URL in the array list below.
+            const images_list = [
+        {
+            "url": "https://cdn.discordapp.com/attachments/1080516281851199528/1080529341257101404/image.png",
+            "alt": "",
+            "name": "",
+            "link": ""
+        },
+        {
+            "url": "https://cdn.discordapp.com/attachments/1080516281851199528/1080530370811928656/image.png",
+            "alt": "",
+            "name": "",
+            "link": ""
+        },
+        {
+            "url": "https://cdn.discordapp.com/attachments/1080516281851199528/1080530721262813244/image.png",
+            "alt": "",
+            "name": "",
+            "link": ""
+        },
+        {
+            "url": "https://cdn.discordapp.com/attachments/1080516281851199528/1080531002495094907/image.png",
+            "alt": "",
+            "name": "",
+            "link": ""
+        },
+        {
+            "url": "https://cdn.discordapp.com/attachments/1080516281851199528/1080531237057331350/image.png",
+            "alt": "",
+            "name": "",
+            "link": ""
+        }
+            ];
+
+        // generated by https://www.html-code-generator.com/html/image-slideshow-generator
+            let slider_id = document.querySelector("#image-slider-2");
+
+            // append all images
+            let dots_div = "";
+            let images_div = "";
+            for (let i = 0; i < images_list.length; i++) {
+                // if no link without href="" tag
+                let href = (images_list[i].link == "" ? "":' href="'+images_list[i].link+'"');
+                images_div += '<a'+href+' class="hcg-slides animated"'+(i === 0 ? ' style="display:flex"':'')+'>'+
+                                '<img src="'+images_list[i].url+'" alt="'+images_list[i].name+'">'+
+                            '</a>';
+                dots_div += '<a href="#" class="hcg-slide-dot'+(i === 0 ? ' dot-active':'')+'" data-id="'+i+'"></a>';
+            }
+            slider_id.querySelector(".hcg-slider-body").innerHTML = images_div;
+            slider_id.querySelector(".hcg-slide-dot-control").innerHTML = dots_div;
+
+            let slide_index = 0;
+
+            const images = slider_id.querySelectorAll(".hcg-slides");
+            const dots = slider_id.querySelectorAll(".hcg-slide-dot");
+            const showSlides = () => {
+                if (slide_index > images.length-1) {
+                    slide_index = 0;
+                }
+                if (slide_index < 0) {
+                    slide_index = images.length-1;
+                }
+                for (let i = 0; i < images.length; i++) {
+                    images[i].style.display = "none";
+                    dots[i].classList.remove("dot-active");
+                    if (i == slide_index) {
+                        images[i].style.display = "flex";
+                        dots[i].classList.add("dot-active");
+                    }
+                }
+            }
+
+            const dot_click = event => {
+                event.preventDefault();
+                slide_index = event.target.dataset.id;
+                showSlides();
+            }
+
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].addEventListener("click", dot_click, false);
+            }
+            // auto play
+            setInterval(() => {
+                slide_index++;
+                showSlides();
+            }, 3000);
+
+        })();
+
+    </script>
+
+<script>
+    (() => {
+    //If you want to add more images, add the link name and URL image URL in the array list below.
+        const images_list = [
+    {
+        "url": "https://cdn.discordapp.com/attachments/1080516281851199528/1080533622974591027/worzard_poster.jpg",
+        "alt": "",
+        "name": "",
+        "link": ""
+    },
+    {
+        "url": "https://cdn.discordapp.com/attachments/1080516281851199528/1080533566460543116/GDD_1-sheet.jpg",
+        "alt": "",
+        "name": "",
+        "link": ""
+    }
+        ];
+
+    // generated by https://www.html-code-generator.com/html/image-slideshow-generator
+        let slider_id = document.querySelector("#image-slider-3");
+
+        // append all images
+        let dots_div = "";
+        let images_div = "";
+        for (let i = 0; i < images_list.length; i++) {
+            // if no link without href="" tag
+            let href = (images_list[i].link == "" ? "":' href="'+images_list[i].link+'"');
+            images_div += '<a'+href+' class="hcg-slides animated"'+(i === 0 ? ' style="display:flex"':'')+'>'+
+                            '<img src="'+images_list[i].url+'" alt="'+images_list[i].name+'">'+
+                        '</a>';
+            dots_div += '<a href="#" class="hcg-slide-dot'+(i === 0 ? ' dot-active':'')+'" data-id="'+i+'"></a>';
+        }
+        slider_id.querySelector(".hcg-slider-body").innerHTML = images_div;
+        slider_id.querySelector(".hcg-slide-dot-control").innerHTML = dots_div;
+
+        let slide_index = 0;
+
+        const images = slider_id.querySelectorAll(".hcg-slides");
+        const dots = slider_id.querySelectorAll(".hcg-slide-dot");
+        const showSlides = () => {
+            if (slide_index > images.length-1) {
+                slide_index = 0;
+            }
+            if (slide_index < 0) {
+                slide_index = images.length-1;
+            }
+            for (let i = 0; i < images.length; i++) {
+                images[i].style.display = "none";
+                dots[i].classList.remove("dot-active");
+                if (i == slide_index) {
+                    images[i].style.display = "flex";
+                    dots[i].classList.add("dot-active");
+                }
+            }
+        }
+
+        const dot_click = event => {
+            event.preventDefault();
+            slide_index = event.target.dataset.id;
+            showSlides();
+        }
+
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].addEventListener("click", dot_click, false);
+        }
+        // auto play
+        setInterval(() => {
+            slide_index++;
+            showSlides();
+        }, 3000);
+
+    })();
+
+</script>
+
+<script>
+    (() => {
+    //If you want to add more images, add the link name and URL image URL in the array list below.
+        const images_list = [
+    {
+        "url": "https://media.discordapp.net/attachments/1080516281851199528/1080540099890135090/63070124_1.jpg?width=1178&height=662",
+        "alt": "",
+        "name": "",
+        "link": ""
+    },
+    {
+        "url": "https://media.discordapp.net/attachments/1080516281851199528/1080540100359893062/63070124_2.jpg?width=1178&height=662",
+        "alt": "",
+        "name": "",
+        "link": ""
+    },
+    {
+        "url": "https://media.discordapp.net/attachments/1080516281851199528/1080540100691247114/63070124_3.jpg?width=1178&height=662",
+        "alt": "",
+        "name": "",
+        "link": ""
+    },
+    {
+        "url": "https://media.discordapp.net/attachments/1080516281851199528/1080540100997427301/63070124_4.jpg?width=1178&height=662",
+        "alt": "",
+        "name": "",
+        "link": ""
+    },
+    {
+        "url": "https://media.discordapp.net/attachments/1080516281851199528/1080540101274255380/63070124_5.jpg?width=1178&height=662",
+        "alt": "",
+        "name": "",
+        "link": ""
+    }
+        ];
+
+    // generated by https://www.html-code-generator.com/html/image-slideshow-generator
+        let slider_id = document.querySelector("#image-slider-4");
+
+        // append all images
+        let dots_div = "";
+        let images_div = "";
+        for (let i = 0; i < images_list.length; i++) {
+            // if no link without href="" tag
+            let href = (images_list[i].link == "" ? "":' href="'+images_list[i].link+'"');
+            images_div += '<a'+href+' class="hcg-slides animated"'+(i === 0 ? ' style="display:flex"':'')+'>'+
+                            '<img src="'+images_list[i].url+'" alt="'+images_list[i].name+'">'+
+                        '</a>';
+            dots_div += '<a href="#" class="hcg-slide-dot'+(i === 0 ? ' dot-active':'')+'" data-id="'+i+'"></a>';
+        }
+        slider_id.querySelector(".hcg-slider-body").innerHTML = images_div;
+        slider_id.querySelector(".hcg-slide-dot-control").innerHTML = dots_div;
+
+        let slide_index = 0;
+
+        const images = slider_id.querySelectorAll(".hcg-slides");
+        const dots = slider_id.querySelectorAll(".hcg-slide-dot");
+        const showSlides = () => {
+            if (slide_index > images.length-1) {
+                slide_index = 0;
+            }
+            if (slide_index < 0) {
+                slide_index = images.length-1;
+            }
+            for (let i = 0; i < images.length; i++) {
+                images[i].style.display = "none";
+                dots[i].classList.remove("dot-active");
+                if (i == slide_index) {
+                    images[i].style.display = "flex";
+                    dots[i].classList.add("dot-active");
+                }
+            }
+        }
+
+        const dot_click = event => {
+            event.preventDefault();
+            slide_index = event.target.dataset.id;
+            showSlides();
+        }
+
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].addEventListener("click", dot_click, false);
+        }
+        // auto play
+        setInterval(() => {
+            slide_index++;
+            showSlides();
+        }, 3000);
+
+    })();
+
+</script>
+</body>
+</html>
